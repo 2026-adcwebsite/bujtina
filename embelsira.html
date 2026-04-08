@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ëmbëlsira – Bultine Tradita</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+</head>
+<body>
+<nav id="nav">
+  <a class="nav-logo" href="index.html"><div class="logo-emblem">🫙</div>Bultine Tradita</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Kryefaqja</a></li>
+    <li><a href="index.html#about">Historia</a></li>
+    <li><a href="index.html#menu" class="active">Menuja</a></li>
+    <li><a href="index.html#zona">Zona</a></li>
+    <li><a href="index.html#contact">Kontakti</a></li>
+  </ul>
+  <a href="index.html#reserve" class="nav-cta">Rezervo Tani</a>
+  <div class="hamburger" id="ham" onclick="toggleMob()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="index.html" onclick="toggleMob()">Kryefaqja</a>
+  <a href="index.html#menu" onclick="toggleMob()">Menuja</a>
+  <a href="index.html#reserve" class="nav-cta" onclick="toggleMob()">Rezervo Tani</a>
+</div>
+
+<div class="menu-page-hero">
+  <div class="mph-content">
+    <div class="mph-emoji">🍯</div>
+    <div class="mph-label">Menuja</div>
+    <h1 class="mph-title"><em>Ëmbëlsira</em></h1>
+    <p class="mph-sub">Mjalti i bletëve tona, arrat e zgjedhura dhe brumi i hollë — ëmbëlsirat tona janë art i pastër.</p>
+  </div>
+</div>
+
+<nav class="menu-nav-strip">
+  <a href="antipasta.html" class="mns-link">🥗 Antipasta</a>
+  <a href="kryesorja.html" class="mns-link">🍖 Kryesorja</a>
+  <a href="byrekat.html" class="mns-link">🥐 Byrekë & Pite</a>
+  <a href="embelsira.html" class="mns-link active">🍯 Ëmbëlsira</a>
+  <a href="pije.html" class="mns-link">☕ Pije</a>
+</nav>
+
+<section class="dishes-section">
+  <div class="container">
+    <div class="centered">
+      <div class="sec-label">4 Ëmbëlsira</div>
+      <h2 class="sec-title">Mjalti & <em>Tradita</em></h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="dishes-grid">
+      <div class="dish-card fade-up">
+        <div class="dish-img" style="padding:0;overflow:hidden;"><img src="https://images.unsplash.com/photo-1598103442097-8b74394b95c2?w=300&q=80" alt="Baklava" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+        <div class="dish-body">
+          <div class="dish-name">Baklava Shtëpie</div>
+          <div class="dish-desc">Arra të bluara me kujdes, mjaltë natyral malesh dhe brumë i hollë si letre — tradita e vjetër osmane.</div>
+          <div class="dish-footer"><span class="dish-price">400 L</span><span class="dish-tag">⭐ Specialitet</span></div>
+        </div>
+      </div>
+      <div class="dish-card fade-up">
+        <div class="dish-img" style="padding:0;overflow:hidden;"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&q=80" alt="Trileçe" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+        <div class="dish-body">
+          <div class="dish-name">Trileçe</div>
+          <div class="dish-desc">Pandispanje e njomur me tri lloje kremi të freskët — recetë tradicionale shqiptare me shije unike.</div>
+          <div class="dish-footer"><span class="dish-price">350 L</span><span class="dish-tag">Klasike</span></div>
+        </div>
+      </div>
+      <div class="dish-card fade-up">
+        <div class="dish-img" style="padding:0;overflow:hidden;"><img src="https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?w=300&q=80" alt="Kadaif" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+        <div class="dish-body">
+          <div class="dish-name">Kadaif</div>
+          <div class="dish-desc">Brumë me filija të hollë, shurup limoni dhe arra të grira — ëmbëlsi orientale me karakter.</div>
+          <div class="dish-footer"><span class="dish-price">380 L</span><span class="dish-tag">Orientale</span></div>
+        </div>
+      </div>
+      <div class="dish-card fade-up">
+        <div class="dish-img" style="padding:0;overflow:hidden;"><img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=300&q=80" alt="Revani" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+        <div class="dish-body">
+          <div class="dish-name">Revani</div>
+          <div class="dish-desc">Kek grisi i njomur me shurup trëndafili dhe aromatizuar me shije të jugut shqiptar.</div>
+          <div class="dish-footer"><span class="dish-price">320 L</span><span class="dish-tag">Jugor</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="menu-back">
+      <a href="byrekat.html" class="btn-outline" style="margin-right:1rem;">← Byrekët</a>
+      <a href="pije.html" class="btn-filled">Pije →</a>
+    </div>
+  </div>
+</section>
+
+<div class="features-strip">
+  <div class="feat"><div class="feat-icon">🍯</div><div class="feat-title">Mjaltë Natyral</div><div class="feat-desc">Nga bletarët e maleve shqiptare</div></div>
+  <div class="feat"><div class="feat-icon">🌰</div><div class="feat-title">Arra të Zgjedhura</div><div class="feat-desc">Nga tregjet dhe kopshtet lokale</div></div>
+  <div class="feat"><div class="feat-icon">🌹</div><div class="feat-title">Aromë Trëndafili</div><div class="feat-desc">Shurup natyral, pa aditivë</div></div>
+  <div class="feat"><div class="feat-icon">👩‍🍳</div><div class="feat-title">I Gatuar Çdo Ditë</div><div class="feat-desc">I freskët, jo i ngrirë kurrë</div></div>
+</div>
+
+<footer>
+  <div class="footer-main">
+    <div>
+      <a class="nav-logo" href="index.html" style="margin-bottom:1rem;display:flex;"><div class="logo-emblem">🫙</div>Bultine Tradita</a>
+      <p class="footer-tagline">Receta të trashëguara brez pas brezi. Shija e vërtetë shqiptare që nga viti 1987.</p>
+      <div class="footer-socials"><a class="fsl" href="#">📘</a><a class="fsl" href="#">📸</a><a class="fsl" href="#">🎵</a></div>
+    </div>
+    <div class="footer-col"><h4>Navigimi</h4><ul><li><a href="index.html">Kryefaqja</a></li><li><a href="index.html#about">Historia</a></li><li><a href="index.html#reserve">Rezervo</a></li></ul></div>
+    <div class="footer-col"><h4>Menuja</h4><ul><li><a href="antipasta.html">Antipasta</a></li><li><a href="kryesorja.html">Kryesorja</a></li><li><a href="byrekat.html">Byrekë & Pite</a></li><li><a href="embelsira.html">Ëmbëlsira</a></li><li><a href="pije.html">Pije</a></li></ul></div>
+    <div class="footer-col"><h4>Kontakti</h4><ul><li><a href="#">+355 4 222 3344</a></li><li><a href="#">info@bultinetradita.al</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2024 Bultine Tradita</div>
+    <div class="footer-copy">Zhvilluar me ❤️ për traditën shqiptare</div>
+  </div>
+</footer>
+<script src="shared.js"></script>
+</body>
+</html>
