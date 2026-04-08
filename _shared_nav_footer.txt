@@ -1,0 +1,21 @@
+NAV_HTML:
+<nav id="nav">
+  <div class="nav-logo"><div class="logo-emblem">🫙</div>Bultine Tradita</div>
+  <ul class="nav-links">
+    <li><a href="index.html">Kryefaqja</a></li>
+    <li><a href="index.html#about">Historia</a></li>
+    <li><a href="index.html#menu">Menuja</a></li>
+    <li><a href="index.html#zona">Zona</a></li>
+    <li><a href="index.html#contact">Kontakti</a></li>
+  </ul>
+  <a href="index.html#reserve" class="nav-cta">Rezervo Tani</a>
+  <div class="hamburger" id="ham" onclick="toggleMob()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="index.html" onclick="toggleMob()">Kryefaqja</a>
+  <a href="index.html#about" onclick="toggleMob()">Historia</a>
+  <a href="index.html#menu" onclick="toggleMob()">Menuja</a>
+  <a href="index.html#zona" onclick="toggleMob()">Zona</a>
+  <a href="index.html#contact" onclick="toggleMob()">Kontakti</a>
+  <a href="index.html#reserve" class="nav-cta" onclick="toggleMob()">Rezervo Tani</a>
+</div>

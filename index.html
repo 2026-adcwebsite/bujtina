@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bultine Tradita – Shija e Vjetër Shqiptare</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+.hero{min-height:100vh;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 5% 80px;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 80% 60% at 20% 80%,rgba(74,34,16,.9),transparent 60%),radial-gradient(ellipse 60% 80% at 80% 20%,rgba(30,15,5,.8),transparent 60%),linear-gradient(160deg,#1e0f05,#3a1e0a 30%,#5c3217 60%,#7a4a28);}
+.hero-bg::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");opacity:.6;}
+.hero-content{position:relative;z-index:1;}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(212,168,67,.12);border:1px solid rgba(212,168,67,.3);padding:.4rem 1.2rem;border-radius:30px;margin-bottom:2rem;font-size:.7rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--amber);font-weight:700;}
+.hero-badge::before,.hero-badge::after{content:'✦';font-size:.6rem;}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3.2rem,8vw,6.5rem);color:var(--cream);line-height:1.05;margin-bottom:1rem;text-shadow:0 4px 40px rgba(0,0,0,.4);}
+.hero h1 em{color:var(--gold);font-style:italic;display:block;}
+.hero-div{display:flex;align-items:center;gap:1rem;justify-content:center;margin:1.5rem auto;max-width:300px;}
+.hero-div::before,.hero-div::after{content:'';flex:1;height:1px;}
+.hero-div::before{background:linear-gradient(to right,transparent,rgba(212,168,67,.5));}
+.hero-div::after{background:linear-gradient(to left,transparent,rgba(212,168,67,.5));}
+.hero-div span{color:var(--gold);font-size:.8rem;}
+.hero-sub{font-size:clamp(1rem,2vw,1.15rem);color:rgba(250,246,240,.75);max-width:520px;margin:0 auto 3rem;line-height:1.9;font-weight:300;}
+.hero-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem;}
+.hero-stats{display:flex;border:1px solid rgba(212,168,67,.18);border-radius:16px;overflow:hidden;backdrop-filter:blur(6px);background:rgba(30,15,5,.35);}
+.hs{flex:1;padding:1.2rem 1.5rem;text-align:center;border-right:1px solid rgba(212,168,67,.15);}
+.hs:last-child{border-right:none;}
+.hs-num{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--gold);line-height:1;}
+.hs-lbl{font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;color:rgba(250,246,240,.5);margin-top:.3rem;}
+.scroll-hint{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.6rem;color:rgba(212,168,67,.5);font-size:.65rem;letter-spacing:2px;text-transform:uppercase;}
+.scroll-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);opacity:.5;animation:sp 2s ease-in-out infinite;}
+@keyframes sp{0%,100%{opacity:.3;transform:translateY(0)}50%{opacity:.8;transform:translateY(5px)}}
+
+/* About */
+.about{background:var(--cream2);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.about-visual{position:relative;}
+.about-main{aspect-ratio:3/4;border-radius:16px;background:linear-gradient(160deg,var(--brown),var(--mid),var(--copper));display:flex;align-items:center;justify-content:center;font-size:6rem;overflow:hidden;position:relative;box-shadow:var(--shadow-lg);}
+.about-main::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(30,15,5,.6),transparent 60%);}
+.afc{position:absolute;bottom:-1.5rem;right:-1.5rem;background:var(--white);border-radius:12px;padding:1rem 1.2rem;box-shadow:var(--shadow);border-left:3px solid var(--gold);min-width:130px;}
+.afc-n{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--copper);line-height:1;}
+.afc-l{font-size:.65rem;letter-spacing:1px;color:var(--muted);text-transform:uppercase;margin-top:.2rem;}
+.asi{position:absolute;top:-1.5rem;left:-1.5rem;width:100px;height:100px;border-radius:12px;background:linear-gradient(135deg,var(--gold),var(--amber));display:flex;align-items:center;justify-content:center;font-size:2.5rem;box-shadow:var(--shadow);border:3px solid var(--white);}
+.about-text p{font-size:.95rem;color:var(--muted);line-height:1.9;margin-bottom:1rem;}
+.about-text p strong{color:var(--text);}
+.ahi{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem;}
+.ah{display:flex;align-items:start;gap:.8rem;background:var(--white);padding:1rem 1.1rem;border-radius:10px;box-shadow:0 2px 12px rgba(30,15,5,.06);transition:transform .25s;}
+.ah:hover{transform:translateY(-3px);}
+.ah-i{font-size:1.3rem;flex-shrink:0;}
+.ah strong{display:block;font-size:.82rem;color:var(--text);margin-bottom:.2rem;}
+.ah span{font-size:.75rem;color:var(--muted);}
+
+/* Menu Preview */
+.menu-preview{background:var(--cream);}
+.menu-cats{display:grid;grid-template-columns:repeat(5,1fr);gap:1.2rem;margin-top:3rem;}
+.mcc{background:var(--white);border-radius:16px;padding:2rem 1rem;text-align:center;box-shadow:0 4px 20px rgba(30,15,5,.07);transition:all .3s;border:1.5px solid transparent;display:block;}
+.mcc:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:var(--copper);}
+.mcc-ico{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,rgba(181,98,42,.12),rgba(212,168,67,.08));display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin:0 auto 1rem;border:1.5px solid rgba(181,98,42,.15);transition:transform .3s;}
+.mcc:hover .mcc-ico{transform:scale(1.12);}
+.mcc-t{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--text);margin-bottom:.3rem;}
+.mcc-c{font-size:.72rem;color:var(--copper);font-weight:700;}
+
+/* Area */
+.area-section{background:linear-gradient(175deg,var(--cream2),var(--cream));}
+.area-intro{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-bottom:4rem;}
+.area-intro p{font-size:.95rem;color:var(--muted);line-height:1.9;margin-top:1rem;}
+.area-vis{aspect-ratio:16/9;border-radius:16px;background:linear-gradient(135deg,#3d6b45,#4a8f55,#5cad6a);display:flex;align-items:center;justify-content:center;font-size:5rem;box-shadow:var(--shadow);}
+.area-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.ac{background:var(--white);border-radius:16px;overflow:hidden;box-shadow:0 4px 20px rgba(30,15,5,.07);transition:all .3s;}
+.ac:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);}
+.ac-h{height:140px;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;}
+.ac-h::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(250,246,240,.8));}
+.ac-b{padding:1.2rem 1.4rem 1.5rem;}
+.ac-d{font-size:.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--copper);margin-bottom:.4rem;}
+.ac-t{font-family:'Cormorant Garamond',serif;font-size:1.1rem;margin-bottom:.5rem;color:var(--text);}
+.ac-p{font-size:.78rem;color:var(--muted);line-height:1.7;}
+.bg1{background:linear-gradient(135deg,#2d5a3d,#4a8f55);}
+.bg2{background:linear-gradient(135deg,#3d3060,#6b5ea8);}
+.bg3{background:linear-gradient(135deg,#1a4a7a,#2e7db5);}
+.bg4{background:linear-gradient(135deg,#6b3d2e,#a05a3e);}
+.bg5{background:linear-gradient(135deg,#3d6b3d,#5ca05a);}
+.bg6{background:linear-gradient(135deg,#7a5a1e,#c9a84c);}
+
+/* Gallery */
+.gallery-s{background:var(--dark);padding:100px 5%;}
+.gal-grid{display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:220px 220px;gap:.8rem;margin-top:3rem;}
+.gi{border-radius:12px;overflow:hidden;cursor:pointer;position:relative;}
+.gi:nth-child(1){grid-column:span 5;grid-row:span 2;}
+.gi:nth-child(2){grid-column:span 4;}
+.gi:nth-child(3){grid-column:span 3;}
+.gi:nth-child(4){grid-column:span 3;}
+.gi:nth-child(5){grid-column:span 4;}
+.gi-in{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem;transition:transform .4s;position:relative;}
+.gi:hover .gi-in{transform:scale(1.06);}
+.gi-ov{position:absolute;inset:0;background:rgba(30,15,5,.45);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s;font-size:1.5rem;}
+.gi:hover .gi-ov{opacity:1;}
+.gc1{background:linear-gradient(135deg,#5c3217,#b5622a);}
+.gc2{background:linear-gradient(135deg,#2d4020,#4a6b35);}
+.gc3{background:linear-gradient(135deg,#3d2010,#7a4a28);}
+.gc4{background:linear-gradient(135deg,#1a1a1a,#3d3d3d);}
+.gc5{background:linear-gradient(135deg,#4a3010,#c9a84c);}
+
+/* Reserve */
+.reserve-s{background:linear-gradient(160deg,var(--dark),#2a1208,var(--brown));padding:100px 5%;}
+.reserve-wrap{display:grid;grid-template-columns:1fr 1.4fr;gap:5rem;align-items:start;max-width:1140px;margin:0 auto;}
+.rv-perks{margin-top:2rem;}
+.rp{display:flex;align-items:center;gap:.8rem;padding:.7rem 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:.85rem;color:rgba(250,246,240,.65);}
+.rp::before{content:'✓';color:var(--gold);font-weight:700;}
+.rfm{background:rgba(255,255,255,.04);border:1px solid rgba(212,168,67,.15);border-radius:20px;padding:2.5rem;backdrop-filter:blur(6px);}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
+.fg-full{grid-column:span 2;}
+.fl{display:block;font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:.5rem;}
+.fi,.fs,.fta{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(212,168,67,.2);border-radius:10px;padding:.75rem 1rem;color:var(--cream);font-family:'Nunito',sans-serif;font-size:.88rem;transition:border-color .2s,background .2s;}
+.fi::placeholder,.fta::placeholder{color:rgba(250,246,240,.3);}
+.fi:focus,.fs:focus,.fta:focus{outline:none;border-color:var(--copper);background:rgba(181,98,42,.08);}
+.fs option{background:#1e0f05;color:var(--cream);}
+.fta{resize:vertical;min-height:90px;}
+.btn-res{width:100%;background:linear-gradient(135deg,var(--copper),#8b3a18);color:var(--white);padding:1rem;border-radius:30px;font-size:.85rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;transition:all .3s;margin-top:1rem;box-shadow:0 6px 24px rgba(181,98,42,.4);cursor:pointer;border:none;font-family:'Nunito',sans-serif;}
+.btn-res:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(181,98,42,.5);}
+
+/* Contact */
+.contact-s{background:var(--cream2);padding:100px 5%;}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;max-width:1140px;margin:0 auto;}
+.ci{display:flex;gap:1rem;margin-bottom:1.8rem;align-items:start;}
+.ci-ico{width:46px;height:46px;border-radius:12px;flex-shrink:0;background:linear-gradient(135deg,rgba(181,98,42,.15),rgba(212,168,67,.08));border:1px solid rgba(181,98,42,.2);display:flex;align-items:center;justify-content:center;font-size:1.1rem;}
+.ci-d strong{display:block;font-size:.7rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--copper);margin-bottom:.3rem;}
+.ci-d span{font-size:.88rem;color:var(--muted);line-height:1.7;}
+.ht{margin-top:1.5rem;}
+.ht-r{display:flex;justify-content:space-between;padding:.55rem 0;border-bottom:1px solid var(--cream3);font-size:.83rem;}
+.ht-r:last-child{border-bottom:none;}
+.ht-day{color:var(--text);font-weight:600;}
+.ht-time{color:var(--muted);}
+.map-b{border-radius:16px;overflow:hidden;aspect-ratio:4/3;background:linear-gradient(135deg,#c8d8b8,#a8c898);display:flex;align-items:center;justify-content:center;font-size:4rem;position:relative;box-shadow:var(--shadow);}
+.map-pin{position:absolute;font-size:2.5rem;filter:drop-shadow(0 4px 8px rgba(0,0,0,.3));animation:pb 2s ease-in-out infinite;}
+@keyframes pb{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.map-btn{display:block;text-align:center;background:var(--dark);color:var(--amber);padding:.85rem;border-radius:10px;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;font-weight:700;margin-top:1rem;transition:all .2s;}
+.map-btn:hover{background:var(--brown);transform:translateY(-2px);}
+
+/* Responsive */
+@media(max-width:1024px){.menu-cats{grid-template-columns:repeat(3,1fr);}.reserve-wrap{grid-template-columns:1fr;gap:2rem;}}
+@media(max-width:768px){
+  .hero-stats{flex-direction:column;}
+  .hs{border-right:none;border-bottom:1px solid rgba(212,168,67,.15);}
+  .hs:last-child{border-bottom:none;}
+  .about-grid{grid-template-columns:1fr;}
+  .asi{width:70px;height:70px;font-size:1.8rem;}
+  .ahi{grid-template-columns:1fr;}
+  .menu-cats{grid-template-columns:repeat(2,1fr);}
+  .area-intro{grid-template-columns:1fr;}
+  .area-cards{grid-template-columns:1fr 1fr;}
+  .gal-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto;}
+  .gi{grid-column:auto!important;grid-row:auto!important;height:180px;}
+  .contact-grid{grid-template-columns:1fr;}
+  .fg{grid-template-columns:1fr;}
+  .fg-full{grid-column:span 1;}
+}
+@media(max-width:480px){
+  .hero h1{font-size:2.6rem;}
+  .hero-actions{flex-direction:column;align-items:center;}
+  .btn-hero-primary,.btn-hero-secondary{width:100%;justify-content:center;}
+  .menu-cats{grid-template-columns:1fr 1fr;}
+  .area-cards{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <div class="nav-logo"><div class="logo-emblem">🫙</div>Bultine Tradita</div>
+  <ul class="nav-links">
+    <li><a href="index.html">Kryefaqja</a></li>
+    <li><a href="#about">Historia</a></li>
+    <li><a href="#menu">Menuja</a></li>
+    <li><a href="#zona">Zona</a></li>
+    <li><a href="#contact">Kontakti</a></li>
+  </ul>
+  <a href="#reserve" class="nav-cta">Rezervo Tani</a>
+  <div class="hamburger" id="ham" onclick="toggleMob()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="index.html" onclick="toggleMob()">Kryefaqja</a>
+  <a href="#about" onclick="toggleMob()">Historia</a>
+  <a href="#menu" onclick="toggleMob()">Menuja</a>
+  <a href="#zona" onclick="toggleMob()">Zona</a>
+  <a href="#contact" onclick="toggleMob()">Kontakti</a>
+  <a href="#reserve" class="nav-cta" onclick="toggleMob()">Rezervo Tani</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Që nga viti 1987</div>
+    <h1>Bultine<br><em>Tradita</em></h1>
+    <div class="hero-div"><span>✦</span></div>
+    <p class="hero-sub">Receta të trashëguara brez pas brezi, të gatuara me duart e nënave dhe shërbyer me zemër miqësorë.</p>
+    <div class="hero-actions">
+      <a href="#reserve" class="btn-hero-primary">🍽️ Rezervo Tavolinën</a>
+      <a href="#menu" class="btn-hero-secondary">📖 Shiko Menunë</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hs"><div class="hs-num">37+</div><div class="hs-lbl">Vite Traditë</div></div>
+      <div class="hs"><div class="hs-num">80+</div><div class="hs-lbl">Pjata</div></div>
+      <div class="hs"><div class="hs-num">500+</div><div class="hs-lbl">Klientë/Javë</div></div>
+      <div class="hs"><div class="hs-num">3</div><div class="hs-lbl">Breza</div></div>
+    </div>
+  </div>
+  <div class="scroll-hint"><div class="scroll-dot"></div>Zbrit</div>
+</section>
+
+<!-- FEATURES STRIP -->
+<div class="features-strip">
+  <div class="feat fade-up"><div class="feat-icon">🔥</div><div class="feat-title">Zjarri i Vjetër</div><div class="feat-desc">Gatim mbi sac dhe zjarr druri lisi</div></div>
+  <div class="feat fade-up"><div class="feat-icon">🌿</div><div class="feat-title">Produkte Lokale</div><div class="feat-desc">Direkt nga fermat e zonës çdo ditë</div></div>
+  <div class="feat fade-up"><div class="feat-icon">🍷</div><div class="feat-title">Verëra Shtëpie</div><div class="feat-desc">Nga vreshtat shqiptare me kujdes</div></div>
+  <div class="feat fade-up"><div class="feat-icon">👨‍🍳</div><div class="feat-title">Chef Tradicional</div><div class="feat-desc">30+ vjet me receta origjinale</div></div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual fade-up">
+        <div class="asi">🫙</div>
+        <div class="about-main">🏡</div>
+        <div class="afc"><div class="afc-n">1987</div><div class="afc-l">Viti i Themelimit</div></div>
+      </div>
+      <div class="about-text fade-up">
+        <div class="sec-label">Historia Jonë</div>
+        <h2 class="sec-title">Rreth <em>Nesh</em></h2>
+        <div class="sec-line"></div>
+        <p>Bultine Tradita u hap në vitin <strong>1987</strong> nga familja Dervishi — me një ëndërr të thjeshtë: të ruajnë shijen e vërtetë shqiptare. Çdo pjatë mban historinë e brezave.</p>
+        <p>Sot, nën drejtimin e birit dhe bijës, bultineja vazhdon traditën — byrekë me gjalpë shtëpie, qengj i pjekur ngadalë, <strong>tavë kosi</strong> sipas recetës origjinale të gjyshes.</p>
+        <p>Çdo mëngjes fillon me zjarrin e ndezur dhe produktet e freskëta nga fshatrat fqinjë.</p>
+        <div class="ahi">
+          <div class="ah"><div class="ah-i">🌾</div><div><strong>Brumë i Shtrirë me Dorë</strong><span>Byrekë sipas metodës tradicionale</span></div></div>
+          <div class="ah"><div class="ah-i">🐑</div><div><strong>Mish i Zgjedhur</strong><span>Qengj nga fermat lokale të besuar</span></div></div>
+          <div class="ah"><div class="ah-i">🧀</div><div><strong>Djathë Fshati</strong><span>I prodhuar çdo javë nga bulmetaret</span></div></div>
+          <div class="ah"><div class="ah-i">🍯</div><div><strong>Mjaltë Natyral</strong><span>Nga bletarët e maleve shqiptare</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU PREVIEW -->
+<section id="menu" style="background:var(--cream);padding:100px 5%;">
+  <div class="container">
+    <div class="centered">
+      <div class="sec-label">Kuzhina Jonë</div>
+      <h2 class="sec-title">Zgjidh <em>Kategorinë</em></h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="menu-cats">
+      <a href="antipasta.html" class="mcc fade-up"><div class="mcc-ico">🥗</div><div class="mcc-t">Antipasta</div><div class="mcc-c">6 pjata →</div></a>
+      <a href="kryesorja.html" class="mcc fade-up"><div class="mcc-ico">🍖</div><div class="mcc-t">Kryesorja</div><div class="mcc-c">6 pjata →</div></a>
+      <a href="byrekat.html" class="mcc fade-up"><div class="mcc-ico">🥐</div><div class="mcc-t">Byrekë & Pite</div><div class="mcc-c">6 pjata →</div></a>
+      <a href="embelsira.html" class="mcc fade-up"><div class="mcc-ico">🍯</div><div class="mcc-t">Ëmbëlsira</div><div class="mcc-c">4 pjata →</div></a>
+      <a href="pije.html" class="mcc fade-up"><div class="mcc-ico">☕</div><div class="mcc-t">Pije</div><div class="mcc-c">6 pije →</div></a>
+    </div>
+    <div class="centered" style="margin-top:2.5rem;"><a href="antipasta.html" class="btn-filled">Hap Menunë e Plotë</a></div>
+  </div>
+</section>
+
+<!-- AREA -->
+<section id="zona" style="background:linear-gradient(175deg,var(--cream2),var(--cream));padding:100px 5%;">
+  <div class="container">
+    <div class="area-intro">
+      <div class="fade-up">
+        <div class="sec-label">Zbulo Zonën</div>
+        <h2 class="sec-title">Çfarë Ofron <em>Zona Rreth</em></h2>
+        <div class="sec-line"></div>
+        <p>Bultineja ndodhet në zemër të Tiranës, e rrethuar nga atraksione kulturore, parqe të gjelbëra dhe shëtitore historike. Vizita mund të jetë shumë më tepër sesa një vakt i shijshëm.</p>
+      </div>
+      <div class="area-vis fade-up">🗺️</div>
+    </div>
+    <div class="area-cards">
+      <div class="ac fade-up"><div class="ac-h bg1">🏔️</div><div class="ac-b"><div class="ac-d">📍 5 km larg</div><div class="ac-t">Mali i Dajtit</div><p class="ac-p">Shëtitje në natyrë, ajër i pastër malor dhe pikëpamje panoramike mbi Tiranën.</p></div></div>
+      <div class="ac fade-up"><div class="ac-h bg2">🕌</div><div class="ac-b"><div class="ac-d">📍 2 km larg</div><div class="ac-t">Qendra Historike</div><p class="ac-p">Xhamia e Et'hem Beut, Muzeu Historik Kombëtar, Pazari i Ri — kulturë autentike.</p></div></div>
+      <div class="ac fade-up"><div class="ac-h bg3">🌿</div><div class="ac-b"><div class="ac-d">📍 1 km larg</div><div class="ac-t">Parku i Madh</div><p class="ac-p">Liqeni artificial, shtigje për shëtitje dhe çiklizëm, ambiente të qeta relaksuese.</p></div></div>
+      <div class="ac fade-up"><div class="ac-h bg4">🎭</div><div class="ac-b"><div class="ac-d">📍 800 m larg</div><div class="ac-t">Teatri Kombëtar</div><p class="ac-p">Shfaqje teatrale, koncerte dhe ngjarje kulturore gjatë gjithë vitit.</p></div></div>
+      <div class="ac fade-up"><div class="ac-h bg5">🛍️</div><div class="ac-b"><div class="ac-d">📍 500 m larg</div><div class="ac-t">Blloku & Boutiques</div><p class="ac-p">Dyqane artizanati, galeri arti dhe produkte unike shqiptare për çdo shije.</p></div></div>
+      <div class="ac fade-up"><div class="ac-h bg6">🍇</div><div class="ac-b"><div class="ac-d">📍 15 km larg</div><div class="ac-t">Ferma Organike</div><p class="ac-p">Ferma me të cilën punojmë direkt — djathë, mjaltë, verë dhe perime të freskëta.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-s" id="gallery">
+  <div class="container">
+    <div class="centered">
+      <div class="sec-label">Atmosfera</div>
+      <h2 class="sec-title" style="color:var(--cream)">Galeria e <em style="color:var(--gold)">Fotove</em></h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="gal-grid">
+      <div class="gi"><div class="gi-in gc1">🍽️</div><div class="gi-ov">🔍</div></div>
+      <div class="gi"><div class="gi-in gc2">🔥</div><div class="gi-ov">🔍</div></div>
+      <div class="gi"><div class="gi-in gc3">🫙</div><div class="gi-ov">🔍</div></div>
+      <div class="gi"><div class="gi-in gc4">🌿</div><div class="gi-ov">🔍</div></div>
+      <div class="gi"><div class="gi-in gc5">🍷</div><div class="gi-ov">🔍</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVE -->
+<section class="reserve-s" id="reserve">
+  <div class="reserve-wrap">
+    <div class="fade-up">
+      <div class="sec-label">Rezervime</div>
+      <h2 class="sec-title" style="color:var(--cream)">Rezervo <em style="color:var(--gold)">Tavolinën</em></h2>
+      <div class="sec-line"></div>
+      <p style="font-size:.92rem;color:rgba(250,246,240,.6);line-height:1.9;margin-top:1rem;">Siguroni vendin tuaj paraprakisht dhe shijoni atmosferën tradicionale pa asnjë pritje.</p>
+      <div class="rv-perks">
+        <div class="rp">Konfirmim i menjëhershëm me SMS</div>
+        <div class="rp">Anulim falas deri 2 orë para</div>
+        <div class="rp">Mundësi sallë private për grupe</div>
+        <div class="rp">Menuja speciale për evente</div>
+        <div class="rp">Parking i disponueshëm</div>
+      </div>
+    </div>
+    <div class="rfm fade-up">
+      <form class="fg" onsubmit="doRes(event)">
+        <div><label class="fl">Emri & Mbiemri</label><input class="fi" type="text" placeholder="Arben Dervishi" required></div>
+        <div><label class="fl">Telefoni</label><input class="fi" type="tel" placeholder="+355 69 000 0000" required></div>
+        <div><label class="fl">Data</label><input class="fi" type="date" required id="dt"></div>
+        <div><label class="fl">Ora</label><select class="fs"><option>12:00 – Drekë</option><option>13:00</option><option>14:00</option><option>19:00 – Darkë</option><option>20:00</option><option>21:00</option></select></div>
+        <div><label class="fl">Persona</label><select class="fs"><option>2 persona</option><option>3–4 persona</option><option>5–6 persona</option><option>7–10 persona</option><option>Grup 10+</option></select></div>
+        <div><label class="fl">Salla</label><select class="fs"><option>Salla Kryesore</option><option>Terraca e Jashtme</option><option>Salla Private</option></select></div>
+        <div class="fg-full"><label class="fl">Kërkesa Speciale</label><textarea class="fta" placeholder="Ditëlindje, jubile, alergjira..."></textarea></div>
+        <div class="fg-full"><button type="submit" class="btn-res">🍽️ Dërgo Rezervimin</button></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-s" id="contact">
+  <div class="container">
+    <div class="centered" style="margin-bottom:3rem;">
+      <div class="sec-label">Na Gjeni</div>
+      <h2 class="sec-title">Kontakti & <em>Oraret</em></h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <div class="ci fade-up"><div class="ci-ico">📍</div><div class="ci-d"><strong>Adresa</strong><span>Rruga Myslym Shyri, Nr. 24<br>Tiranë, Shqipëri</span></div></div>
+        <div class="ci fade-up"><div class="ci-ico">📞</div><div class="ci-d"><strong>Telefon</strong><span>+355 4 222 3344<br>+355 69 444 5566</span></div></div>
+        <div class="ci fade-up"><div class="ci-ico">✉️</div><div class="ci-d"><strong>Email</strong><span>info@bultinetradita.al</span></div></div>
+        <div class="ht fade-up">
+          <div class="ht-r"><span class="ht-day">E Hënë – E Premte</span><span class="ht-time">11:00 – 23:00</span></div>
+          <div class="ht-r"><span class="ht-day">E Shtunë</span><span class="ht-time">10:00 – 24:00</span></div>
+          <div class="ht-r"><span class="ht-day">E Diel</span><span class="ht-time">10:00 – 22:00</span></div>
+          <div class="ht-r"><span class="ht-day">Festa Zyrtare</span><span class="ht-time">12:00 – 21:00</span></div>
+        </div>
+      </div>
+      <div class="fade-up">
+        <div class="map-b"><div class="map-pin">📍</div></div>
+        <a href="https://maps.google.com" target="_blank" class="map-btn">🗺️ Hap në Google Maps</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-main">
+    <div>
+      <div class="nav-logo" style="margin-bottom:1rem;"><div class="logo-emblem">🫙</div>Bultine Tradita</div>
+      <p class="footer-tagline">Receta të trashëguara brez pas brezi. Shija e vërtetë shqiptare që nga viti 1987.</p>
+      <div class="footer-socials">
+        <a class="fsl" href="#">📘</a><a class="fsl" href="#">📸</a><a class="fsl" href="#">🎵</a>
+      </div>
+    </div>
+    <div class="footer-col"><h4>Navigimi</h4><ul><li><a href="#about">Historia</a></li><li><a href="#menu">Menuja</a></li><li><a href="#gallery">Galeria</a></li><li><a href="#zona">Zona Rreth</a></li><li><a href="#reserve">Rezervo</a></li></ul></div>
+    <div class="footer-col"><h4>Menuja</h4><ul><li><a href="antipasta.html">Antipasta</a></li><li><a href="kryesorja.html">Kryesorja</a></li><li><a href="byrekat.html">Byrekë & Pite</a></li><li><a href="embelsira.html">Ëmbëlsira</a></li><li><a href="pije.html">Pije</a></li></ul></div>
+    <div class="footer-col"><h4>Shërbimet</h4><ul><li><a href="#">Dasma & Evente</a></li><li><a href="#">Catering</a></li><li><a href="#">Salla Private</a></li><li><a href="#">Menuja Sezonale</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2024 Bultine Tradita · Të gjitha të drejtat e rezervuara</div>
+    <div class="footer-copy">Zhvilluar me ❤️ për traditën shqiptare</div>
+  </div>
+</footer>
+<script src="shared.js"></script>
+<script>
+document.getElementById('dt').min=new Date().toISOString().split('T')[0];
+function doRes(e){e.preventDefault();const b=e.target.querySelector('.btn-res');b.textContent='✓ Rezervimi u dërgua!';b.style.background='linear-gradient(135deg,#2d6a2d,#1e4a1e)';setTimeout(()=>{b.textContent='🍽️ Dërgo Rezervimin';b.style.background='';e.target.reset();},3500);}
+</script>
+</body>
+</html>
